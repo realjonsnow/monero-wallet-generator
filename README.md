@@ -10,6 +10,7 @@ The repository contains 3 different editions:
 
 - [Original moneromooo's wallet generator](https://jollymort.github.io/monero-wallet-generator/monero-wallet-generator.html)
 - [Dice (d6) version of the wallet generator](https://jollymort.github.io/monero-wallet-generator/monero-wallet-generator-d6.html)
+- [Coin flip (d2) version of the wallet generator](https://jollymort.github.io/monero-wallet-generator/monero-wallet-generator-d2.html)
 - [Printable version of the wallet generator](https://jollymort.github.io/monero-wallet-generator/monero-wallet-generator-print.html)
 
 ## Dice (d6) Version Notes
@@ -39,6 +40,10 @@ the l is:
 `0x1000000000000000000000000000000014DEF9DEA2F79CD65812631A5CF5D3ED`
 
 and already, any seed generated is divided by the l and remainder used as the private key, so any number bigger than l is a waste of rolls. The above number (`155...`) is about `0.835*l`, so we're almost using the entire domain of possible seeds, mapped 1-to-1 to your dice rolls!
+
+## Coin Flip (d2) Version Notes
+
+Similar to the dice version, but the conversion is from base2 to base16. It accepts only numbers 1 and 2, and requires 252 flips. This is cool because if you play around you can directly see in the seed where it was changed for each flip, since any group of 4 flips will correspond to some letter in the seed.
 
 ## Printable Version Notes
 
