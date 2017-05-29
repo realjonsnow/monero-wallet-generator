@@ -10965,17 +10965,16 @@ function swap_endian(hex) {
 function checkRollsInput() {
     rolls_status_widget = document.getElementById("rolls_status_widget");
     user_entropy_widget = document.getElementById("user_entropy_widget");
-    len = user_entropy_widget.value.length;
+    
     // Input sanitization
-    if(len > 0) {
-        ch1 = '1'.charCodeAt(0);
-        ch6 = '2'.charCodeAt(0);
-        chIn = user_entropy_widget.value.charCodeAt(len - 1);
-        if(chIn < ch1 || chIn > ch6) {
-            user_entropy_widget.value = user_entropy_widget.value.slice(0,len - 1);
-        }
-    }
-    // For maximum entropy, allow using coin flips only when all flips have been performed
+    tmpstart = user_entropy_widget.selectionStart;
+    tmpend = user_entropy_widget.selectionEnd;
+    user_entropy_widget.value = user_entropy_widget.value.replace(/[^1-2]+/g, ''); 
+    user_entropy_widget.selectionStart = tmpstart;
+    user_entropy_widget.selectionEnd = tmpend;
+    
+    // Force enough entropy
+    len = user_entropy_widget.value.length;
     if(len == 252) {
         rolls_status_widget.innerHTML = len + " coin flips. Using coin flips.";
     }
