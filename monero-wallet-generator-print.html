@@ -11009,13 +11009,13 @@ function genwallet(lang)
   }
   else if (prefix_widget.value[0] == "W") {
     qr=new QRCode(address_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-    qr.makeCode("aeonAddress:"+keys.public_addr);
+    qr.makeCode(keys.public_addr);
     
     qr=new QRCode(privSpend_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-    qr.makeCode("aeonPrivSpend:"+keys.spend.sec);
+    qr.makeCode(keys.spend.sec);
     
     qr=new QRCode(privView_qr_widget, {correctLevel:QRCode.CorrectLevel.L});
-    qr.makeCode("aeonPrivView:"+keys.view.sec);
+    qr.makeCode(keys.view.sec);
   }
 }
 
